@@ -2,6 +2,7 @@
 
 from flask import Flask, jsonify, request
 from models import news
+import socket
 import time
 
 app = Flask(__name__)
@@ -163,4 +164,6 @@ def updateNews():
 
 if __name__ == '__main__':
     # running in localhost
-    app.run(debug=True)
+    print(socket.gethostbyname(socket.gethostname()))
+    print(socket.gethostname())
+    app.run(host='0.0.0.0', port=5000, debug=True)

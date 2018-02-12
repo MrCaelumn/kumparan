@@ -163,4 +163,4 @@ def updateNews():
 
 if __name__ == '__main__':
     # running in localhost
-    app.run(host='127.0.0.1', port=3007,debug=True)
+    app.run(debug=True)

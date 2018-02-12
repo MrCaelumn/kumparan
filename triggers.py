@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 instanceNews = news.News()
 
-@app.route('/')
+@app.route('/api/v1')
 def test():
     res = {
         "status" : True,
@@ -19,7 +19,7 @@ def test():
     return jsonify(res)
 
 # LIST FOR ALL,Topics, Status
-@app.route('/list/news', methods=['GET'])
+@app.route('/api/v1/list/news', methods=['GET'])
 def getListNews():
     print("FUNCTION getListNews invoked")
     data = {}
@@ -35,7 +35,7 @@ def getListNews():
     return jsonify(res)
 
 
-@app.route('/remove/news/<idKey>', methods=['POST'])
+@app.route('/api/v1/remove/news/<idKey>', methods=['POST'])
 def deleteNewsById(idKey):
     print(idKey)
     print("FUNCTION deleteNewsByStatus invoked")
@@ -46,7 +46,7 @@ def deleteNewsById(idKey):
     return res
 
 
-@app.route('/remove/topics/<idKey>/<topics>', methods=['POST'])
+@app.route('/api/v1/remove/topics/<idKey>/<topics>', methods=['POST'])
 def removeTopicsFromNews(idKey,topics):
     print(idKey)
     print(topics)
@@ -67,7 +67,7 @@ def removeTopicsFromNews(idKey,topics):
     return res
 
 
-@app.route('/add/news', methods=['POST'])
+@app.route('/api/v1/add/news', methods=['POST'])
 def addNews():
 
     #using params
@@ -98,7 +98,7 @@ def addNews():
 
     return res
 
-@app.route('/add/topics/<idKey>/<topics>', methods=['POST'])
+@app.route('/api/v1/add/topics/<idKey>/<topics>', methods=['POST'])
 def addTopicsToNews(idKey,topics):
     print("FUNCTION addTopicsToNews invoked")
     arr = []
@@ -115,7 +115,7 @@ def addTopicsToNews(idKey,topics):
     res = instanceNews.addTopicsInNews(msg)
     return res
 
-@app.route('/update/news', methods=['POST'])
+@app.route('/api/v1/update/news', methods=['POST'])
 def updateNews():
     msg = {}
 
@@ -165,5 +165,5 @@ def updateNews():
 if __name__ == '__main__':
     # running in localhost
     print(socket.gethostbyname(socket.gethostname()))
-    print(socket.gethostname())
+    # print(socket.gethostname())
     app.run(host='0.0.0.0', port=5000, debug=True)

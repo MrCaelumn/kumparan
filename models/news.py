@@ -6,6 +6,7 @@ from bson.json_util import dumps
 class News(object):
     """docstring for ."""
     def __init__(self):
+        # self.client = MongoClient("mongodb://192.168.22.158:27017")
         self.client = MongoClient()
         self.db = self.client.kumparan
 
@@ -114,7 +115,6 @@ class News(object):
 
     def updateNews(self,data):
         print("Function updateNews invoked from Class News")
-
 
         try:
 

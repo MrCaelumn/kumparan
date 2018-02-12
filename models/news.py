@@ -6,7 +6,8 @@ from bson.json_util import dumps
 class News(object):
     """docstring for ."""
     def __init__(self):
-        # self.client = MongoClient("mongodb://192.168.22.158:27017")
+        # set your host ip
+        # self.client = MongoClient("mongodb://<host IP>:27017")
         self.client = MongoClient()
         self.db = self.client.kumparan
 

@@ -8,6 +8,15 @@ app = Flask(__name__)
 
 instanceNews = news.News()
 
+@app.route('/')
+def test():
+    res = {
+        "status" : True,
+        "message" : "connected"
+    }
+
+    return jsonify(res)
+
 # LIST FOR ALL,Topics, Status
 @app.route('/list/news', methods=['GET'])
 def getListNews():

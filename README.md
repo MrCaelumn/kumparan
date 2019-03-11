@@ -1,4 +1,4 @@
-# Kumparan CRUD API
+# Flask (Python) CRUD API
 
 Kumparan Test
 
